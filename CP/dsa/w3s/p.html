@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contoh Kode C</title>
+  <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" rel="stylesheet" />
+</head>
+<body>
+
+<pre><code class="language-c">
+#include &lt;stdio.h&gt;
+
+
+int main()
+{
+    int LM, HK, kategori;
+    float JML, BYRAKH;
+
+    printf("Masukan lama menginap: ");
+    scanf("%i", &LM);
+    printf("Masukan harga kamar: ");
+    scanf("%i", &HK);
+
+    printf("Lama menginap %i hari\n", LM);
+    printf("Harga kamar: Rp%i ribu / hari\n\n", HK);
+
+    JML = LM * HK;
+
+    // Tentukan kategori diskon berdasarkan jumlah
+    if (JML > 300000)
+        kategori = 3;
+    else if (JML >= 200000)
+        kategori = 2;
+    else if (JML >= 100000)
+        kategori = 1;
+    else
+        kategori = 0;
+
+    switch (kategori)
+    {
+    case 3:
+        printf("Harga sebelum diskon : %.2f\n", JML);
+        BYRAKH = JML - (JML * 30) / 100;
+        printf("Mendapatkan diskon 30%%\n");
+        break;
+    case 2:
+        printf("Harga sebelum diskon : %.2f\n", JML);
+        BYRAKH = JML - (JML * 20) / 100;
+        printf("Mendapatkan diskon 20%%\n");
+        break;
+    case 1:
+        printf("Harga sebelum diskon : %.2f\n", JML);
+        BYRAKH = JML - (JML * 10) / 100;
+        printf("Mendapatkan diskon 10%%\n");
+        break;
+    default:
+        BYRAKH = JML;
+        printf("Total bayar tidak dapat diskon\n");
+        break;
+    }
+
+    printf("Total bayar setelah diskon adalah : %.2f\n", BYRAKH);
+
+    return 0;
+}
+
+</code></pre>
+
+<script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-c.min.js"></script>
+</body>
+</html>
